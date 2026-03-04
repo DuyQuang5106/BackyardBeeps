@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta charset = "UTF-8">
-    <title>QTuneS</title>
+    <title>BackyardBeats</title>
   </head>
   <body>
-    <h1>QTuneS: Vu Duy Quang's personal music app</h1>
+    <h1>BackyardBeats: Under Construction</h1>
 
     <div>
       <h2>Now Playing</h2> 
-      <p>Song:</p>
-      <audio id = "player" src = "No Role Modelz.mp3"></audio>
-      <Button id = "playBtn">Play</Button>
+      <p>Song: <span id = "songName"></span> </p>
+      
+      <audio id = "player"></audio>
+
+      <button id = "backBtn"><i class = "fa-solid fa-backward"></i></button>
+      <Button id = "playBtn"><i class = "fa-solid fa-play"></i></Button>
+      <button id = "forwardBtn"><i class = "fa-solid fa-forward"></i></button>
+      
+      <br><br>
+      <div class = "progress-container">
+        <span id = "currentTime">0:00</span>
+        <input type = "range" id = "progressBar" value = "0" min = "0" step = "1">
+        <span id = "totalTime">0:00</span>
+      </div>
     </div>
 
-    <div>
-      <h2>Playlist</h2>
-      <p>Song 1</p>
-      <p>Song 2</p>
-      <p>Song 3</p>
-    </div>
+  
 
     <script src = "script.js"></script>
   </body>
