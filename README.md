@@ -1,14 +1,11 @@
 # BackyardBeeps 🎵
 
 A simple browser-based music player built with HTML, CSS, and JavaScript.
-
+Version 1.2 Updates 10:25PM March 4 2026
 ## Features
-- Play local songs
-- Progress bar
-- Autoplay next song
+- Standard Music player features: Play, pause, next song, previous song, skipping parts
+- Hardcoded songs
 
 ## Future Improvements
-- Pause button, skip buttons
-- Numeral timestamps
 - Playlist system, playlist UI
 - Online hosting
