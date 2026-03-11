@@ -203,3 +203,44 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 2px;
   height: 3px;
 }
+/* ─── Playlist ───────────────────────────────────── */
+
+#playlist {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+
+  max-height: 200px;      /* limits height */
+  overflow-y: auto;       /* enables vertical scrolling */
+  overflow-x: hidden;
+}
+
+/* individual songs */
+#playlist li {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #ddd;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* hover effect */
+#playlist li:hover {
+  background: #1a1a1a;
+  color: #f7c948;
+}
+
+/* scrollbar styling (optional but nice) */
+#playlist::-webkit-scrollbar {
+  width: 6px;
+}
+
+#playlist::-webkit-scrollbar-track {
+  background: #111;
+}
+
+#playlist::-webkit-scrollbar-thumb {
+  background: #e01b1b;
+  border-radius: 3px;
+}

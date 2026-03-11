@@ -42,7 +42,7 @@ class SongPlayer
       {
         if(!this.audio.src)
         {
-          this.loadSong();
+          this.loadSong(this.currentIndex);
         }
         this.play();
         this.playButton.innerHTML = '<i class = "fa-solid fa-pause"></i>';
@@ -87,8 +87,9 @@ class SongPlayer
 
   }
   // load the song
-  loadSong()
+  loadSong(songIndex) // -- -- Updated 11/3/2026: index parameter for loadSong()
   {
+    this.currentIndex = songIndex;
     this.audio.src = this.songs[this.currentIndex].filePath;
   }
   // play current song
@@ -104,16 +105,14 @@ class SongPlayer
   // next song
   next()
   {
-    this.currentIndex = (this.currentIndex + 1) % this.songs.length;
-    this.loadSong();
+    this.loadSong((this.currentIndex + 1) % this.songs.length); // -- -- Updated 11/3/2026: index parameter for loadSong()
     this.play();
   }
   // previous song
   back()
   {
-    if(this.currentIndex == 0) this.currentIndex = this.songs.length - 1;
-    else this.currentIndex = this.currentIndex - 1;
-    this.loadSong();
+    const newIndex = this.currentIndex == 0 ? this.songs.length - 1 : this.currentIndex - 1;
+    this.loadSong(this.currentIndex); // -- -- Updated 11/3/2026: index parameter for loadSong()
     this.play();
   }
   // return the song name
@@ -137,6 +136,23 @@ function formatTime(seconds)
   return minute + ":" + second;
 }
 
+function renderPlaylist(songList)
+{
+  const playlist = document.getElementById("playlist")
+  for(let i = 0; i < songList.length; i++)
+  {
+    const item = document.createElement("li");
+    item.textContent = songList[i].name;
+    item.addEventListener("click", function() {
+      songPlayer.loadSong(i);
+      songPlayer.play();
+      this.playButton.innerHTML = '<i class = "fa-solid fa-pause"></i>';
+    })
+    playlist.appendChild(item);
+  }
+
+}
+
 const songs = [
   new Song("No Role Modelz", "Songs/NoRoleModelz.mp3"),
   new Song("She Knows", "Songs/SheKnows.mp3"),
@@ -147,3 +163,4 @@ const songs = [
 
 const songPlayer = new SongPlayer(document.getElementById("player"),songs);
 songPlayer.bindEvents();
+renderPlaylist(songs);
