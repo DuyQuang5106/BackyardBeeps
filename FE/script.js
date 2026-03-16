@@ -91,6 +91,10 @@ class SongPlayer
   {
     this.currentIndex = songIndex;
     this.audio.src = this.songs[this.currentIndex].filePath;
+
+    const items = document.querySelectorAll("#playlist li");
+    items.forEach(item => item.classList.remove("active"));
+    items[this.currentIndex].classList.add("active");
   }
   // play current song
   play()
@@ -112,7 +116,7 @@ class SongPlayer
   back()
   {
     const newIndex = this.currentIndex == 0 ? this.songs.length - 1 : this.currentIndex - 1;
-    this.loadSong(this.currentIndex); // -- -- Updated 11/3/2026: index parameter for loadSong()
+    this.loadSong(newIndex); // -- -- Updated 11/3/2026: index parameter for loadSong()
     this.play();
   }
   // return the song name
@@ -143,10 +147,10 @@ function renderPlaylist(songList)
   {
     const item = document.createElement("li");
     item.textContent = songList[i].name;
-    item.addEventListener("click", function() {
+    item.addEventListener("click", () => {
       songPlayer.loadSong(i);
       songPlayer.play();
-      this.playButton.innerHTML = '<i class = "fa-solid fa-pause"></i>';
+      songPlayer.playButton.innerHTML = '<i class = "fa-solid fa-pause"></i>';
     })
     playlist.appendChild(item);
   }

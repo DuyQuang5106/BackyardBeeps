@@ -244,3 +244,12 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: #e01b1b;
   border-radius: 3px;
 }
+
+#playlist li.active {
+  color: #f7c948;
+}
+
+#playlist li.active::before {
+  content: '▶  ';
+  color: #e01b1b;
+}
