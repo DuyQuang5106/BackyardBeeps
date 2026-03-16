@@ -74,6 +74,7 @@ class SongPlayer
     this.progressBar.value = this.audio.currentTime;
     // Updated time logic
     this.currentTime.textContent = formatTime(this.audio.currentTime);
+    document.documentElement.style.setProperty("--progress", (this.audio.currentTime / this.audio.duration) * 100 + "%")
   });
 
   this.progressBar.addEventListener("input", () => {
@@ -157,14 +158,15 @@ function renderPlaylist(songList)
 
 }
 
-const songs = [
-  new Song("No Role Modelz", "Songs/NoRoleModelz.mp3"),
-  new Song("She Knows", "Songs/SheKnows.mp3"),
-  new Song("Wet Dreamz", "Songs/WetDreamz.mp3"),
-  new Song("Wind", "Songs/Wind.mp3"),
-  new Song("Luv Sic", "Songs/luv_sic.mp3")
-];
+async function init()
+{
+  const response = await fetch("/songs");
+  const songs = await response.json();
+  const songPlayer = new SongPlayer(document.getElementById("player"),songs);
+  songPlayer.bindEvents();
+  renderPlaylist(songs);
+}
+// ------------------------------------------Main Function----------------------------------------- \\
 
-const songPlayer = new SongPlayer(document.getElementById("player"),songs);
-songPlayer.bindEvents();
-renderPlaylist(songs);
+init()
+
