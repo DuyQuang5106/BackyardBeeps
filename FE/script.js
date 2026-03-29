@@ -141,7 +141,7 @@ function formatTime(seconds)
   return minute + ":" + second;
 }
 
-function renderPlaylist(songList)
+function renderPlaylist(songList, songPlayer)
 {
   const playlist = document.getElementById("playlist")
   for(let i = 0; i < songList.length; i++)
@@ -164,7 +164,7 @@ async function init()
   const songs = await response.json();
   const songPlayer = new SongPlayer(document.getElementById("player"),songs);
   songPlayer.bindEvents();
-  renderPlaylist(songs);
+  renderPlaylist(songs, songPlayer);
 }
 // ------------------------------------------Main Function----------------------------------------- \\
 
