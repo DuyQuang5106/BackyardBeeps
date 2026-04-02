@@ -3,38 +3,64 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <meta charset = "UTF-8">
-    <title>BackyardBeats</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>BackyardBeeps</title>
   </head>
   <body>
-    <h1>BackyardBeats: Under Construction</h1>
+    <h1>BackyardBeeps</h1>
 
-    <div>
-      <h2>Now Playing</h2> 
-      <p>Song: <span id = "songName"></span> </p>
-      
-      <audio id = "player"></audio>
+    <div class="app-layout">
+      <!-- Library View -->
+      <div id="library-section" class="library-container">
+        <!-- Suggestions Area -->
+        <div id="suggestions-area" style="display:none; margin-bottom: 20px;">
+           <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; color:#e01b1b; text-transform:uppercase; margin-bottom:12px;">Suggested For You</h3>
+           <div id="suggested-grid" class="album-grid"></div>
+        </div>
 
-      <button id = "backBtn"><i class = "fa-solid fa-backward"></i></button>
-      <Button id = "playBtn"><i class = "fa-solid fa-play"></i></Button>
-      <button id = "forwardBtn"><i class = "fa-solid fa-forward"></i></button>
-      
-      
-      <div class = "progress-container">
-        <span id = "currentTime">0:00</span>
-        <input type = "range" id = "progressBar" value = "0" min = "0" step = "1">
-        <span id = "totalTime">0:00</span>
+        <div id="category-filters" class="category-filters">
+          <!-- Filter buttons populated here -->
+        </div>
+        <div id="album-grid" class="album-grid">
+          <!-- Album cards populated here -->
+        </div>
+      </div>
+
+      <!-- Player and Queue -->
+      <div class="player-container">
+        <div class="player-card">
+          <h2>Now Playing</h2> 
+          <p>Song: <span id="songName">None</span></p>
+          
+          <audio id="player"></audio>
+
+          <div class="controls">
+            <button id="shuffleBtn" class="mode-btn"><i class="fa-solid fa-shuffle"></i></button>
+            <button id="backBtn"><i class="fa-solid fa-backward"></i></button>
+            <button id="playBtn"><i class="fa-solid fa-play"></i></button>
+            <button id="forwardBtn"><i class="fa-solid fa-forward"></i></button>
+            <button id="repeatBtn" class="mode-btn"><i class="fa-solid fa-repeat"></i></button>
+          </div>
+          
+          <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="progressBar" value="0" min="0" step="1">
+            <span id="totalTime">0:00</span>
+          </div>
+          
+          <div class="queue-wrapper">
+            <h3>Queue</h3>
+            <ul id="playlist">
+              <!-- Queue items populated here -->
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
-
-    <div>
-      <ul id = "playlist">
-
-      </ul>
-    </div>
-  
-
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

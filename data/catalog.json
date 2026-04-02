@@ -1,0 +1,57 @@
+{
+  "albums": [
+    {
+      "id": "album_hip_hop",
+      "title": "Hip Hop",
+      "artist": "Various Artists",
+      "coverArt": "https://picsum.photos/seed/hiphop/200/200",
+      "tags": ["Hip Hop", "Rap"],
+      "tracks": [
+        {
+          "id": "track_no_role_modelz",
+          "title": "No Role Modelz",
+          "artist": "J. Cole",
+          "filename": "NoRoleModelz.mp3",
+          "filePath": "/Songs/Albums/Hip Hop/NoRoleModelz.mp3"
+        },
+        {
+          "id": "track_she_knows",
+          "title": "She Knows",
+          "artist": "J. Cole",
+          "filename": "SheKnows.mp3",
+          "filePath": "/Songs/Albums/Hip Hop/SheKnows.mp3"
+        },
+        {
+          "id": "track_wet_dreamz",
+          "title": "Wet Dreamz",
+          "artist": "J. Cole",
+          "filename": "WetDreamz.mp3",
+          "filePath": "/Songs/Albums/Hip Hop/WetDreamz.mp3"
+        }
+      ]
+    },
+    {
+      "id": "album_lofi",
+      "title": "Lofi Vibes",
+      "artist": "Various Artists",
+      "coverArt": "https://picsum.photos/seed/lofi/200/200",
+      "tags": ["Lofi", "Anime"],
+      "tracks": [
+        {
+          "id": "track_wind",
+          "title": "Wind",
+          "artist": "Akeboshi",
+          "filename": "Wind.mp3",
+          "filePath": "/Songs/Albums/Lofi Vibes/Wind.mp3"
+        },
+        {
+          "id": "track_luv_sic",
+          "title": "Luv(sic)",
+          "artist": "Nujabes",
+          "filename": "luv_sic.mp3",
+          "filePath": "/Songs/Albums/Lofi Vibes/luv_sic.mp3"
+        }
+      ]
+    }
+  ]
+}
